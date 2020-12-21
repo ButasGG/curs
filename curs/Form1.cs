@@ -13,18 +13,29 @@ namespace curs
     public partial class Form1 : Form
     {
         Emitter emitter = new Emitter();
+        private int MousePositionX = 0;
+        private int MousePositionY = 0;
         public Form1()
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);
+            this.emitter = new Emitter // создаю эмиттер и привязываю его к полю emitter
+            {
+                Direction = 0,
+                SpeedMin = 10,
+                SpeedMax = 10,
+                ColorFrom = Color.Gold,
+                ColorTo = Color.FromArgb(0, Color.Red),
+                ParticlesPerTick = 10,
+                X = picDisplay.Width / 2,
+                Y = picDisplay.Height / 2,
+            };
         }
-
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
         {
-            emitter.MousePositionX = e.X;
-            emitter.MousePositionY = e.Y;
+            MousePositionX = e.X;
+            MousePositionY = e.Y;
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             emitter.UpdateState();
