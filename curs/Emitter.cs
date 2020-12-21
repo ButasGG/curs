@@ -14,9 +14,15 @@ namespace curs
         public int MousePositionY;
         public float GravitationX = 0;
         public float GravitationY = 1;
+        public int ParticlesCount = 500;
 
+        public virtual void ResetParticle(Particle particle)
+        {
+            
+        }
         public void UpdateState()
         {
+           
             foreach (var particle in particles)
             {
                 particle.Life -= 1;
@@ -35,15 +41,13 @@ namespace curs
                 }
                 else
                 {
-                    particle.SpeedX += GravitationX;
-                    particle.SpeedY += GravitationY;
                     particle.X += particle.SpeedX;
                     particle.Y += particle.SpeedY;
                 }
             }
             for (var i = 0; i < 10; ++i)
             {
-                if (particles.Count < 200)
+                if (particles.Count < ParticlesCount)
                 {
                     var particle = new ParticleColorful();
                     particle.FromColor = Color.Yellow;

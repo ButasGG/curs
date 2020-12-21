@@ -12,15 +12,11 @@ namespace curs
 {
     public partial class Form1 : Form
     {
-        List<Particle> particles = new List<Particle>();
         Emitter emitter = new Emitter();
-        private int MousePositionX = 0;
-        private int MousePositionY = 0;
         public Form1()
         {
             InitializeComponent();
             picDisplay.Image = new Bitmap(picDisplay.Width, picDisplay.Height);
-  
         }
 
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
@@ -39,6 +35,5 @@ namespace curs
             }
             picDisplay.Invalidate();
         }
-
     }
 }
