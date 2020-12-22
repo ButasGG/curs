@@ -106,7 +106,7 @@ namespace curs
             foreach (var point in impactPoints)
             {
                 point.Render(g);
-            }
+        }
         }
     }
 }
