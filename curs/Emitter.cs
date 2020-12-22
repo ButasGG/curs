@@ -17,13 +17,12 @@ namespace curs
         public int Y; // соответствующая координата Y 
         public int Direction = 0; // вектор направления в градусах куда сыпет эмиттер
         public int Spreading = 220; // разброс частиц относительно Direction
-        public int SpeedMin = 1; // начальная минимальная скорость движения частицы
-        public int SpeedMax = 10; // начальная максимальная скорость движения частицы
+        public int Speed = 11; // начальная минимальная скорость движения частицы
         public int RadiusMin = 2; // минимальный радиус частицы
         public int RadiusMax = 10; // максимальный радиус частицы
         public int LifeMin = 20; // минимальное время жизни частицы
         public int LifeMax = 100; // максимальное время жизни частицы
-        public int ParticlesPerTick = 20;
+        public int ParticlesPerTick = 5;
         public int MousePositionX;
         public int MousePositionY;
 
@@ -42,7 +41,7 @@ namespace curs
                 + (double)Particle.rand.Next(Spreading)
                 - Spreading / 2;
 
-            var speed = Particle.rand.Next(SpeedMin, SpeedMax);
+            var speed = Particle.rand.Next(11,Speed);
 
             particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);

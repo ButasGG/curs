@@ -24,11 +24,9 @@ namespace curs
             this.emitter = new Emitter
             {
                 Direction = 90,
-                SpeedMin = 11,
-                SpeedMax = 15,
+                ParticlesPerTick = 5,
                 ColorFrom = Color.Blue,
                 ColorTo = Color.FromArgb(0, Color.Purple),
-                ParticlesPerTick = 30,
                 X = picDisplay.Width / 2,
                 Y = picDisplay.Height / 2 - 65 ,
             };
@@ -115,6 +113,16 @@ namespace curs
             {
                 point1.R += 5;
             }
+        }
+        private void trackBar1Speed_Scroll(object sender, EventArgs e)
+        {
+            emitter.Speed = trackBar1Speed.Value;
+            trackBar1Speed.Text = $"{trackBar1Speed.Value}°";
+        }
+        private void trackBar2Value_Scroll(object sender, EventArgs e)
+        {
+            emitter.ParticlesPerTick = trackBar2Value.Value;
+            trackBar2Value.Text = $"{trackBar2Value.Value}°";
         }
         private void timer1_Tick(object sender, EventArgs e)
         {

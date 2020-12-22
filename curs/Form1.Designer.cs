@@ -52,12 +52,13 @@
             // trackBar1Speed
             // 
             this.trackBar1Speed.Location = new System.Drawing.Point(12, 318);
-            this.trackBar1Speed.Maximum = 100;
-            this.trackBar1Speed.Minimum = 10;
+            this.trackBar1Speed.Maximum = 15;
+            this.trackBar1Speed.Minimum = 11;
             this.trackBar1Speed.Name = "trackBar1Speed";
             this.trackBar1Speed.Size = new System.Drawing.Size(182, 45);
             this.trackBar1Speed.TabIndex = 1;
-            this.trackBar1Speed.Value = 10;
+            this.trackBar1Speed.Value = 11;
+            this.trackBar1Speed.Scroll += new System.EventHandler(this.trackBar1Speed_Scroll);
             // 
             // timer1
             // 
@@ -68,9 +69,14 @@
             // trackBar2Value
             // 
             this.trackBar2Value.Location = new System.Drawing.Point(12, 370);
+            this.trackBar2Value.Maximum = 50;
+            this.trackBar2Value.Minimum = 5;
             this.trackBar2Value.Name = "trackBar2Value";
             this.trackBar2Value.Size = new System.Drawing.Size(182, 45);
             this.trackBar2Value.TabIndex = 2;
+            this.trackBar2Value.TickFrequency = 15;
+            this.trackBar2Value.Value = 5;
+            this.trackBar2Value.Scroll += new System.EventHandler(this.trackBar2Value_Scroll);
             // 
             // label1
             // 
