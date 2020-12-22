@@ -11,22 +11,11 @@ namespace curs
     {
         public float X;
         public float Y;
-
-
         public abstract void ImpactParticle(Particle particle);
-
-
         public virtual void Render(Graphics g)
         {
-            g.FillEllipse(
-                    new SolidBrush(Color.Red),
-                    X - 5,
-                    Y - 5,
-                    10,
-                    10
-                );
+            g.FillEllipse(new SolidBrush(Color.Red),X - 5,Y - 5,10,10);
         }
-
     }
     public class GravityPoint : IImpactPoint
     {
@@ -35,14 +24,12 @@ namespace curs
         public int m = 0;
         public int s = 0;
         public int b = 0;
-
         public override void ImpactParticle(Particle particle)
         {
             float gX = X - particle.X;
             float gY = Y - particle.Y;
-
-            double r = Math.Sqrt(gX * gX + gY * gY); // считаем расстояние от центра точки до центра частицы
-            if (r + particle.Radius < R / 2) // если частица оказалось внутри окружности
+            double r = Math.Sqrt(gX * gX + gY * gY);
+            if (r + particle.Radius < R / 2)
             {
                 particles.Add(particle);
                 if (particle.Radius < 4)
@@ -64,15 +51,7 @@ namespace curs
         }
         public override void Render(Graphics g)
         {
-
-            g.DrawEllipse(
-       new Pen(Color.Red),
-       X - R / 2,
-       Y - R / 2,
-       R,
-       R
-   );
-
+            g.DrawEllipse(new Pen(Color.Red),X - R / 2,Y - R / 2,R,R);
             foreach (var particle in particles)
             {
                 var b = new SolidBrush(Color.Red);
@@ -81,17 +60,10 @@ namespace curs
 
             }
             particles.Clear();
-            g.DrawString(
-        $"Маленьких:{m},средних:{s},больших:{b}",
-        new Font("Verdana", 10), // шрифт и его размер
-        new SolidBrush(Color.White), // цвет шрифта
-        X - 20, // расположение в пространстве
-        Y - 31
-    );
+            g.DrawString($"Маленьких:{m},средних:{s},больших:{b}",new Font("Verdana", 10),new SolidBrush(Color.White),X - 20,Y - 31);
             m = 0;
             s = 0;
             b = 0;
-
         }
     }
 }
