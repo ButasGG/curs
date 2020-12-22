@@ -73,11 +73,11 @@ namespace curs
             }
             public override void Render(Graphics g)
             {
-                
+
                 g.DrawEllipse(
                new Pen(Color.Red),
-               X - 50,
-               Y - 50,
+               X - 100 / 2,
+               Y - 100 / 2,
                R,
                R
            );
