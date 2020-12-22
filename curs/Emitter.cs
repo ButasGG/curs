@@ -76,14 +76,16 @@ namespace curs
                 }
                 else
                 {
+                    particle.X += particle.SpeedX;
+                    particle.Y += particle.SpeedY;
+
                     foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);
                     }
-                    particle.X += particle.SpeedX;
-                    particle.Y += particle.SpeedY;
                     particle.SpeedX += GravitationX;
                     particle.SpeedY += GravitationY;
+
                 }
             }
             while (particlesToCreate >= 1)
