@@ -60,7 +60,7 @@ namespace curs
         }
         public void UpdateState()
         {
-            
+
             int particlesToCreate = ParticlesPerTick;
             foreach (var particle in particles)
             {
@@ -106,7 +106,7 @@ namespace curs
             foreach (var point in impactPoints)
             {
                 point.Render(g);
-        }
+            }
         }
     }
 }

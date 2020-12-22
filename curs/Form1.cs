@@ -46,9 +46,6 @@ namespace curs
             public int m = 0;
             public int s = 0;
             public int b = 0;
-            public static Random rand = new Random();
-            public int Radius = 2 + rand.Next(10);
-            public float Life = 20 + rand.Next(100);
 
             public override void ImpactParticle(Particle particle)
             {
@@ -94,8 +91,9 @@ namespace curs
                     g.FillEllipse(b, particle.X - particle.Radius, particle.Y - particle.Radius, particle.Radius * 2, particle.Radius * 2);
                     
                 }
+                particles.Clear();
                 g.DrawString(
-            $"Маленьких:{m},средних:{s},больших:{b}", // надпись, можно перенос строки вставлять (если вы Катя, то может не работать и надо использовать \r\n)
+            $"Маленьких:{m},средних:{s},больших:{b}",
             new Font("Verdana", 10), // шрифт и его размер
             new SolidBrush(Color.White), // цвет шрифта
             X - 20, // расположение в пространстве
