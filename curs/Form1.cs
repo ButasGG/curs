@@ -127,11 +127,10 @@ namespace curs
         private void timer1_Tick(object sender, EventArgs e)
         {
             emitter.UpdateState();
-            using (var g = Graphics.FromImage(picDisplay.Image))
-            {
-                g.Clear(Color.Black);
-                emitter.Render(g);
-            }
+            var g = Graphics.FromImage(picDisplay.Image);
+            var f = colorDialog1.Color;
+            g.Clear(f);
+            emitter.Render(g);
             picDisplay.Invalidate();
         }
         private void picDisplay_MouseMove(object sender, MouseEventArgs e)
@@ -145,6 +144,12 @@ namespace curs
             point1.Y = e.Y;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (colorDialog1.ShowDialog() == DialogResult.OK)
+            {
+            }
+        }
     }
 
 }
